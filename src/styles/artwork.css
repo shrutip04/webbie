@@ -1,0 +1,76 @@
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px 28px 200px;
+}
+
+.page h1,
+.page h2 {
+  font-family: "Linux Libertine", "Libertinus Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 1.4em 0 0.6em;
+  color: #a6a6a6;
+  border-bottom: 1px solid #2a2a2a;
+}
+.page h1 { font-size: 2.1rem; margin-top: 0; }
+.page h2 { font-size: 1.65rem; }
+
+.page p { margin: 0.6em 0 1em; }
+.page__tagline { color: var(--muted); font-size: 0.85rem; margin: 0.3em 0 1.4em; }
+
+.page a { color: var(--link); text-decoration: none; }
+.page a:hover { text-decoration: underline; }
+.page a.ext::after { content: "\2197"; font-size: 0.72em; margin-left: 0.15em; opacity: 0.8; }
+.page sup { font-size: 0.72em; line-height: 0; }
+
+.page ul,
+.page ol { padding-left: 1.4em; }
+.page li { margin: 0.35em 0; }
+.refs { font-size: 0.9rem; }
+
+.page__footer {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid #2a2a2a;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* The canvas covers the viewport; it never scrolls. Document coordinates are
+   mapped to it in JS by subtracting the scroll offset every frame. */
+.crawler-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.controls {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font: 11px/1 "JetBrains Mono", Consolas, monospace;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.controls:hover,
+.controls:focus-within { opacity: 1; }
+
+.controls button {
+  background: rgba(0, 0, 0, 0.6);
+  color: #9fe8ff;
+  border: 1px solid #1f3a44;
+  padding: 5px 8px;
+  font: inherit;
+  cursor: pointer;
+}
+.controls button:disabled { opacity: 0.4; cursor: default; }
+.controls input[type="range"] { width: 64px; accent-color: #2fd8ff; }
